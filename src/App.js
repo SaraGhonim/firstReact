@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import AddToDo from "./components/addTodo";
+import List from "./components/list";
+import NavBar from "./components/navBar";
+import ThemeContextProvider from "./contexts/theme";
+import TodoListContextProvider from "./contexts/todoList";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContextProvider>
+      <TodoListContextProvider>
+        <NavBar/>
+        <AddToDo />
+        <List />
+      </TodoListContextProvider>
+    </ThemeContextProvider>
   );
-}
+};
 
 export default App;
